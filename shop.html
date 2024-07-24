@@ -82,7 +82,7 @@
             <img src="images/pods.jpg" class="img-fluid product-thumbnail">
             <h3 class="product-title">AirPods Pro.</h3>
             <strong class="product-price">Ksh. 5000</strong>
-            <span class="icon-cross add-to-cart" id="add-to-cart-1" data-product="AirPods Pro." data-price="50000">
+            <span class="icon-cross add-to-cart" id="add-to-cart-1" data-product="AirPods Pro." data-price="5000">
               <img src="images/cross.svg" class="img-fluid">
             </span>
           </a>
@@ -237,24 +237,25 @@
 
   <script>
 	document.addEventListener('DOMContentLoaded', () => {
-	  document.querySelectorAll('.icon-cross').forEach((icon) => {
-		icon.addEventListener('click', function() {
-		  const title = this.getAttribute('data-title');
-		  const price = this.getAttribute('data-price');
-		  
-		  // Get current cart from local storage or initialize if it doesn't exist
-		  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-		  
-		  // Add the product to the cart
-		  cart.push({ title, price });
-		  
-		  // Save the updated cart to local storage
-		  localStorage.setItem('cart', JSON.stringify(cart));
-		  
-		  alert(`${title} has been added to the cart`);
-		});
-	  });
-	});
+  document.querySelectorAll('.icon-cross').forEach((icon) => {
+    icon.addEventListener('click', function() {
+      const product = this.getAttribute('data-product');
+      const price = this.getAttribute('data-price');
+      
+      // Get current cart from local storage or initialize if it doesn't exist
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Add the product to the cart
+      cart.push({ product, price });
+      
+      // Save the updated cart to local storage
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      alert(`${product} has been added to the cart`);
+    });
+  });
+});
+
   </script>
 
 </body>
