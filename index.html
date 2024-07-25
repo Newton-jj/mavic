@@ -99,7 +99,7 @@
 							<h3 class="product-title">Iphone 11</h3>
 							<strong class="product-price">ksh.50000</strong>
 
-							<span class="icon-cross">
+							<span class="icon-cross add-to-cart" id="add-to-cart-2" data-product="iPhone 11" data-price="50000">
 								<img src="images/cross.svg" class="img-fluid">
 							</span>
 						</a>
@@ -113,7 +113,7 @@
 							<h3 class="product-title">Airpods pros 2nd generation</h3>
 							<strong class="product-price">ksh.4500</strong>
 
-							<span class="icon-cross">
+							<span class="icon-cross add-to-cart" id="add-to-cart-1" data-product="AirPods Pro." data-price="4500">
 								<img src="images/cross.svg" class="img-fluid">
 							</span>
 						</a>
@@ -127,7 +127,7 @@
 							<h3 class="product-title">Magsafe</h3>
 							<strong class="product-price">ksh.4000</strong>
 
-							<span class="icon-cross">
+							<span class="icon-cross add-to-cart" id="add-to-cart-3" data-product="Magsafe" data-price="4000">
 								<img src="images/cross.svg" class="img-fluid">
 							</span>
 						</a>
@@ -253,6 +253,29 @@
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+		  document.querySelectorAll('.icon-cross').forEach((icon) => {
+			icon.addEventListener('click', function() {
+			  const product = this.getAttribute('data-product');
+			  const price = this.getAttribute('data-price');
+			  console.log(product, price)
+			  // Get current cart from local storage or initialize if it doesn't exist
+			  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+			  
+			  // Add the product to the cart
+			  cart.push({ product, price });
+			  
+			  // Save the updated cart to local storage
+			  localStorage.setItem('cart', JSON.stringify(cart));
+			  
+			  alert(`${product} has been added to the cart`);
+			});
+		  });
+		});
+		
+		  </script>
 	</body>
 
 </html>
