@@ -93,6 +93,7 @@
               </thead>
               <tbody id="cart-items">
                 <!-- Cart items will be injected here by JavaScript -->
+                
               </tbody>
             </table>
           </div>
@@ -204,27 +205,7 @@
   <script src="js/tiny-slider.js"></script>
   <script src="js/custom.js"></script>
   <script src="js/cart.js"></script>
-  <script src="js/cart.js"></script>
-
-  <script>
-	document.addEventListener('DOMContentLoaded', () => {
-	  const cartItemsContainer = document.getElementById('cart-items');
-	  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
-	  if (cart.length === 0) {
-		cartItemsContainer.innerHTML = '<p>No items in cart</p>';
-	  } else {
-		cart.forEach(item => {
-		  const cartItem = document.createElement('div');
-		  cartItem.classList.add('cart-item');
-		  cartItem.innerHTML = `
-			<p>${item.title} - Ksh.${item.price}</p>
-		  `;
-		  cartItemsContainer.appendChild(cartItem);
-		});
-	  }
-	});
-  </script>
+ 
   
   
 </body>
